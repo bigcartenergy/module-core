@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) Big Cart Energy. All rights reserved.
+ * SPDX-License-Identifier: OSL-3.0
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="bce" translate="label" sortOrder="450" class="bce-brand-tab">
+            <label>Big Cart Energy</label>
+        </tab>
+        <section id="bce_about" translate="label" type="text" sortOrder="999" showInDefault="1" showInWebsite="0" showInStore="0">
+            <class>separator-top</class>
+            <label>About Big Cart Energy</label>
+            <tab>bce</tab>
+            <resource>BigCartEnergy_Core::config</resource>
+            <group id="about" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Big Cart Energy</label>
+                <frontend_model>BigCartEnergy\Core\Block\Adminhtml\System\Config\About</frontend_model>
+            </group>
+        </section>
+    </system>
+</config>

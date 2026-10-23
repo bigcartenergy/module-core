@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) Big Cart Energy. All rights reserved.
+ * SPDX-License-Identifier: OSL-3.0
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="BigCartEnergy_Core::menu" title="Big Cart Energy" translate="title" module="BigCartEnergy_Core" sortOrder="90" resource="BigCartEnergy_Core::bce"/>
+        <add id="BigCartEnergy_Core::about" title="About Big Cart Energy" translate="title" module="BigCartEnergy_Core" sortOrder="900" parent="BigCartEnergy_Core::menu" action="adminhtml/system_config/edit/section/bce_about" resource="BigCartEnergy_Core::config"/>
+    </menu>
+</config>

@@ -1,0 +1,46 @@
+<?php
+/**
+ * Copyright (c) Big Cart Energy. All rights reserved.
+ * SPDX-License-Identifier: OSL-3.0
+ */
+
+/** @var \Magento\Backend\Block\Template $block */
+/** @var \BigCartEnergy\Core\ViewModel\Brand $brand */
+$brand = $block->getData('brand');
+$modules = $block->getData('modules') ?: [];
+?>
+<div class="bce-brand-about">
+    <div class="bce-brand-about__header">
+        <?= /* @noEscape */ $brand->getWheelieSvg(32) ?>
+        <div>
+            <p class="bce-brand-about__title"><?= $block->escapeHtml($brand->getName()) ?></p>
+            <p class="bce-brand-about__strap"><?= $block->escapeHtml(__('Free Magento 2 modules and patches by Big Cart Energy, an ecommerce agency that works like a full ecommerce department.')) ?></p>
+        </div>
+    </div>
+    <table class="bce-brand-about__modules data-table">
+        <caption class="bce-brand-about__caption"><?= $block->escapeHtml(__('Installed Big Cart Energy modules')) ?></caption>
+        <thead>
+            <tr>
+                <th scope="col"><?= $block->escapeHtml(__('Module')) ?></th>
+                <th scope="col"><?= $block->escapeHtml(__('Package')) ?></th>
+                <th scope="col"><?= $block->escapeHtml(__('Version')) ?></th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($modules as $module): ?>
+            <tr>
+                <td><?= $block->escapeHtml($module['name']) ?></td>
+                <td><code><?= $block->escapeHtml($module['package'] !== '' ? $module['package'] : $module['module']) ?></code></td>
+                <td><?= $block->escapeHtml($module['version'] !== '' ? $module['version'] : __('installed')) ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+    <ul class="bce-brand-about__links">
+        <li><a href="<?= $block->escapeUrl($brand->getSiteUrl()) ?>" target="_blank" rel="noopener"><?= $block->escapeHtml(__('bigcartenergy.com')) ?></a></li>
+        <li><a href="<?= $block->escapeUrl($brand->getToolsUrl()) ?>" target="_blank" rel="noopener"><?= $block->escapeHtml(__('Free tools and patches')) ?></a></li>
+        <li><a href="<?= $block->escapeUrl($brand->getContactUrl()) ?>" target="_blank" rel="noopener"><?= $block->escapeHtml(__('Contact Big Cart Energy')) ?></a></li>
+    </ul>
+    <p class="bce-brand-about__service"><?= $block->escapeHtml(__('Want it installed, configured and tuned for your catalog? Big Cart Energy offers an installation and configuration service for every free module.')) ?>
+        <a href="<?= $block->escapeUrl($brand->getContactUrl()) ?>" target="_blank" rel="noopener"><?= $block->escapeHtml(__('Get in touch')) ?></a></p>
+</div>

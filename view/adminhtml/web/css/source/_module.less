@@ -1,0 +1,202 @@
+/**
+ * Copyright (c) Big Cart Energy. All rights reserved.
+ * SPDX-License-Identifier: OSL-3.0
+ *
+ * Shared brand styles for every Big Cart Energy module. The mark takes the surrounding text color on light
+ * surfaces; on the dark admin menu it renders in the brand lime, the one brand accent inside the admin.
+ */
+
+@bce-brand__lime: #c6ff3d;
+@bce-brand__text: #303030;
+@bce-brand__muted: #666666;
+@bce-brand__divider: #e3e3e3;
+@bce-brand__accent: #006bb4;
+@bce-brand__accent-hover: #00538a;
+@bce-brand__mark-asset: 'BigCartEnergy_Core::images/brand/wheelie-mark.svg';
+
+//
+//  Admin menu item: the mark in lime, drawn through a mask so the asset stays unchanged
+//  ---------------------------------------------
+
+.admin__menu {
+    .item-menu[data-ui-id='menu-bigcartenergy-core-menu'] {
+        > a {
+            &:before {
+                background-color: @bce-brand__lime;
+                content: '';
+                display: block;
+                height: 2.6rem;
+                margin: 0 auto .3rem;
+                -webkit-mask: url(@bce-brand__mark-asset) no-repeat center / contain;
+                mask: url(@bce-brand__mark-asset) no-repeat center / contain;
+                width: 2.6rem;
+            }
+
+            &:hover,
+            &:focus {
+                &:before {
+                    background-color: @bce-brand__lime;
+                }
+            }
+        }
+
+        &._active,
+        &._current {
+            > a {
+                &:before {
+                    background-color: @bce-brand__lime;
+                }
+            }
+        }
+    }
+}
+
+//
+//  Configuration tab: the mark before the tab title, in the text color
+//  ---------------------------------------------
+
+.config-nav-block.bce-brand-tab {
+    .admin__page-nav-title {
+        strong {
+            &:before {
+                background-color: currentColor;
+                content: '';
+                display: inline-block;
+                height: 1.6rem;
+                margin-right: .6rem;
+                -webkit-mask: url(@bce-brand__mark-asset) no-repeat center / contain;
+                mask: url(@bce-brand__mark-asset) no-repeat center / contain;
+                vertical-align: -.2rem;
+                width: 1.6rem;
+            }
+        }
+    }
+}
+
+//
+//  Inline marks, in three sizes, always decorative beside text
+//  ---------------------------------------------
+
+.bce-brand-mark,
+.bce-brand-wheelie {
+    color: inherit;
+    display: inline-block;
+    flex: none;
+    vertical-align: middle;
+}
+
+.bce-brand-mark--16 {
+    height: 16px;
+    width: 16px;
+}
+
+.bce-brand-mark--20 {
+    height: 20px;
+    width: 20px;
+}
+
+.bce-brand-mark--32,
+.bce-brand-wheelie--32 {
+    height: 32px;
+    width: 32px;
+}
+
+//
+//  The "by Big Cart Energy" lockup and the footer line
+//  ---------------------------------------------
+
+.bce-brand-lockup {
+    align-items: center;
+    color: @bce-brand__muted;
+    display: inline-flex;
+    font-size: 1.3rem;
+    gap: .6rem;
+    line-height: 1.8rem;
+    white-space: nowrap;
+
+    a {
+        color: @bce-brand__accent;
+        text-decoration: underline;
+        text-underline-offset: .2rem;
+
+        &:hover,
+        &:focus {
+            color: @bce-brand__accent-hover;
+        }
+    }
+}
+
+.bce-brand-footer {
+    align-items: center;
+    border-top: 1px solid @bce-brand__divider;
+    color: @bce-brand__muted;
+    display: flex;
+    font-size: 1.2rem;
+    gap: .8rem;
+    line-height: 1.6rem;
+    margin-top: 2rem;
+    padding: 1.6rem 0;
+
+    a {
+        color: @bce-brand__accent;
+        text-decoration: underline;
+        text-underline-offset: .2rem;
+
+        &:hover,
+        &:focus {
+            color: @bce-brand__accent-hover;
+        }
+    }
+}
+
+//
+//  The About section in Stores > Configuration
+//  ---------------------------------------------
+
+.bce-brand-about {
+    color: @bce-brand__text;
+    max-width: 92rem;
+
+    &__header {
+        align-items: flex-start;
+        display: flex;
+        gap: 1.6rem;
+        margin-bottom: 2rem;
+    }
+
+    &__title {
+        font-size: 2rem;
+        font-weight: 600;
+        line-height: 2.8rem;
+        margin: 0;
+    }
+
+    &__strap {
+        color: @bce-brand__muted;
+        margin: .4rem 0 0;
+    }
+
+    &__caption {
+        font-weight: 600;
+        padding: 0 0 .8rem;
+        text-align: left;
+    }
+
+    &__modules {
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+
+    &__links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.6rem;
+        list-style: none;
+        margin: 0 0 1.6rem;
+        padding: 0;
+    }
+
+    &__service {
+        margin: 0;
+    }
+}
